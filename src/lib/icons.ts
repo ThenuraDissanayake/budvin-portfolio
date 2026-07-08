@@ -4,6 +4,7 @@ import {
   Briefcase,
   Cloud,
   Code2,
+  Container,
   Database,
   Feather,
   FileCode,
@@ -64,6 +65,7 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   firebase: Flame,
   aws: Cloud,
   ec2: Server,
+  cloudrun: Container,
   // Tools
   git: GitBranch,
   github: GitFork,

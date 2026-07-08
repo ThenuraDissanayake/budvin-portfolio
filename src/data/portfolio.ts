@@ -70,6 +70,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Firebase", icon: "firebase" },
       { name: "AWS (Cognito, S3, SES)", icon: "aws" },
       { name: "EC2", icon: "ec2" },
+      { name: "Google Cloud Run", icon: "cloudrun" },
     ],
   },
   {
