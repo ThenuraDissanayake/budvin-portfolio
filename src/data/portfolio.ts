@@ -2,17 +2,16 @@ import type { PersonalInfo, Project, SkillCategory } from "@/types/portfolio";
 
 export const personalInfo: PersonalInfo = {
   name: "Budvin Dissanayake",
-  role: "Software Engineer | Full-Stack & Mobile Developer",
+  role: "Associate Software Engineer | Full-Stack & Mobile Developer",
   tagline:
-    "Building scalable web & mobile applications with real-time data flow and clean UI/UX.",
-  bio: "BSc Software Engineering graduate from the University of Plymouth (Second Class Honours, Upper Division). I specialize in building scalable web and mobile applications, combining modern front-end frameworks with robust back-end cloud architectures. Focused on performance, real-time data flow, and clean UI/UX.",
+    "I build web and mobile applications end to end — interfaces, APIs, databases, and the cloud they run on.",
+  bio: "Associate Software Engineer working across web and mobile. I build applications end to end — React and Next.js on the web, React Native and Flutter on mobile, with the Node.js and PostgreSQL APIs behind them and the cloud infrastructure they run on. Focused on real-time data, secure payment flows, and interfaces people enjoy using. BSc (Hons) Software Engineering, University of Plymouth (Second Class Honours, Upper Division).",
   location: "Colombo, Sri Lanka",
   email: "thenurabudvin@gmail.com",
   socials: [
     {
       label: "GitHub",
-      // Space in the source handle intentionally removed.
-      href: "https://github.com/Thenura-Dissanayake",
+      href: "https://github.com/ThenuraDissanayake",
       icon: "github",
     },
     {
@@ -33,10 +32,12 @@ export const skillCategories: SkillCategory[] = [
     category: "Mobile",
     icon: "mobile",
     skills: [
+      { name: "React Native (Expo)", icon: "react-native" },
       { name: "Flutter", icon: "flutter" },
       { name: "Dart", icon: "dart" },
-      { name: "React Native (Expo)", icon: "react-native" },
       { name: "WebRTC", icon: "webrtc" },
+      { name: "Push Notifications (FCM/APNs)", icon: "push" },
+      { name: "EAS Build & OTA Updates", icon: "eas" },
     ],
   },
   {
@@ -57,19 +58,20 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: "nodejs" },
       { name: "Express.js", icon: "express" },
-      { name: "Serverless Functions", icon: "serverless" },
+      { name: "REST API Design", icon: "rest" },
       { name: "Socket.IO (Real-time)", icon: "socketio" },
+      { name: "Serverless Functions", icon: "serverless" },
     ],
   },
   {
     category: "Database & Cloud",
     icon: "database-cloud",
     skills: [
-      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "PostgreSQL + PostGIS", icon: "postgresql" },
+      { name: "Supabase", icon: "supabase" },
       { name: "MongoDB", icon: "mongodb" },
       { name: "Firebase", icon: "firebase" },
-      { name: "AWS (Cognito, S3, SES)", icon: "aws" },
-      { name: "EC2", icon: "ec2" },
+      { name: "AWS (EC2, Cognito, S3, SES)", icon: "aws" },
       { name: "Google Cloud Run", icon: "cloudrun" },
     ],
   },
@@ -77,8 +79,10 @@ export const skillCategories: SkillCategory[] = [
     category: "Tools",
     icon: "tools",
     skills: [
-      { name: "Git", icon: "git" },
-      { name: "GitHub", icon: "github" },
+      { name: "Git & GitHub", icon: "git" },
+      { name: "Docker", icon: "docker" },
+      { name: "GitHub Actions (CI/CD)", icon: "cicd" },
+      { name: "Postman", icon: "postman" },
       { name: "Figma", icon: "figma" },
       { name: "Agile", icon: "agile" },
     ],
@@ -88,27 +92,29 @@ export const skillCategories: SkillCategory[] = [
 export const projects: Project[] = [
   {
     slug: "enterprise-comm-platform",
-    title: "Real-Time Enterprise Communication & Logistics Platform",
-    badge: "Flagship Project",
-    role: "Full-Stack & Mobile Developer",
+    title: "Real-Time Delivery & Communication Platform",
+    badge: "Industry Project",
+    role: "Mobile & Backend Developer",
     summary:
-      "A cross-platform system pairing a React Native VoIP/WebRTC mobile app with a Next.js 14 admin dashboard.",
+      "A production four-role delivery platform, live on Google Play. Built for my employer \u2014 I developed the entire mobile app and its 113-endpoint backend.",
     description:
-      "A comprehensive cross-platform system featuring a React Native mobile app with VoIP/WebRTC capabilities and a Next.js admin dashboard.",
+      "A production delivery platform live on Google Play, built during my software engineering internship at a Malaysian technology company. I developed the mobile application and its backend: 53 screens across four user roles in React Native + TypeScript, and a 113-endpoint Node.js API over a 53-table PostgreSQL/PostGIS schema, deployed on AWS EC2 behind Nginx.",
     tech: [
-      "Next.js 14",
       "React Native (Expo)",
-      "WebRTC",
-      "Node.js (ESM)",
-      "PostgreSQL",
-      "AWS Cognito/S3",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL + PostGIS",
+      "AWS EC2",
       "Socket.IO",
+      "WebRTC",
     ],
     keyFeatures: [
-      "Engineered real-time WebSocket services with Socket.IO for low-latency messaging and presence.",
-      "Implemented secure authentication flows via AWS Cognito.",
-      "Developed complex state management using Zustand and React Hook Form.",
-      "Delivered VoIP/WebRTC calling inside a React Native (Expo) mobile app.",
+      "Built the full mobile app \u2014 53 screens across four user roles \u2014 and the entire 113-endpoint REST API behind it.",
+      "Integrated payment-gateway checkout and automated payouts with HMAC webhook verification, refunds and wallet ledgers.",
+      "Implemented in-app voice calling over WebRTC + CallKeep, ringing on the lock screen on both Android and iOS.",
+      "Delivered real-time order tracking and chat over Socket.IO with background geolocation and live ETAs.",
+      "Handled the full Google Play release \u2014 signing, store listing, closed testing, production rollout \u2014 plus dual-language localisation.",
     ],
     featured: true,
   },
@@ -127,6 +133,12 @@ export const projects: Project[] = [
       "Integrated the Google Maps API for live GPS tracking of shuttles.",
       "Integrated the PayHere API for secure transaction processing.",
       "Delivered seamless seat reservations with real-time availability updates.",
+    ],
+    links: [
+      {
+        label: "Source on GitHub",
+        href: "https://github.com/ThenuraDissanayake/shuttle_service",
+      },
     ],
     featured: true,
   },

@@ -1,15 +1,41 @@
 import { getIcon } from "@/lib/icons";
-import type { Skill } from "@/types/portfolio";
+import type { SkillCategory } from "@/types/portfolio";
 
-/** Single skill chip with a concept icon. Pure presentational (server-renderable). */
-export function SkillCard({ skill }: { skill: Skill }) {
-  const Icon = getIcon(skill.icon);
+/**
+ * Flat surface card for one skill category: accent icon chip, display-face
+ * category name, and the category's skills as small pill chips.
+ * Pure presentational (server-renderable).
+ */
+export function SkillCard({ category }: { category: SkillCategory }) {
+  const CategoryIcon = getIcon(category.icon);
   return (
-    <div className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-emerald-400/5 hover:shadow-glow">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-zinc-900/80 text-emerald-400 ring-1 ring-white/10 transition-colors group-hover:text-cyan-300">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </span>
-      <span className="text-sm font-medium text-zinc-200">{skill.name}</span>
+    <div className="h-full rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/60">
+      <div className="mb-5 flex items-center gap-3">
+        <span className="rounded-lg bg-accent/10 p-2 text-accent">
+          <CategoryIcon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
+        </span>
+        <h3 className="font-display text-lg font-bold tracking-tight text-fg">
+          {category.category}
+        </h3>
+      </div>
+      <ul className="flex flex-wrap gap-2">
+        {category.skills.map((skill) => {
+          const SkillIcon = getIcon(skill.icon);
+          return (
+            <li
+              key={skill.name}
+              className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-sm text-muted"
+            >
+              <SkillIcon
+                className="h-3.5 w-3.5 text-accent"
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
+              {skill.name}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

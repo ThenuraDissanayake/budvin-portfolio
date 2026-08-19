@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
+import { getIcon } from "@/lib/icons";
 
 const container: Variants = {
   hidden: {},
@@ -18,80 +19,129 @@ const item: Variants = {
   },
 };
 
+const techStack = [
+  "React Native",
+  "TypeScript",
+  "Node.js",
+  "PostgreSQL",
+  "AWS",
+  "Google Cloud Run",
+  "Flutter",
+  "Next.js",
+  "Socket.IO",
+  "WebRTC",
+  "Docker",
+  "Express.js",
+];
+
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
-      {/* ambient background layers */}
-      <div className="pointer-events-none absolute inset-0 bg-radial-fade" />
-      <div className="pointer-events-none absolute inset-0 bg-grid-fade bg-[length:60px_60px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]" />
-      <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 animate-float rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-16 top-48 h-72 w-72 animate-float rounded-full bg-cyan-500/10 blur-3xl [animation-delay:2s]" />
+    <section id="home" className="relative flex min-h-svh flex-col">
+      {/* subtle grid backdrop */}
+      <div className="bg-grid pointer-events-none absolute inset-0" aria-hidden />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="visible"
-        className="relative mx-auto max-w-4xl px-6 py-28 text-center sm:py-36"
-      >
-        <motion.p
-          variants={item}
-          className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-zinc-300 backdrop-blur"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-          </span>
-          Available for opportunities
-        </motion.p>
-
-        <motion.h1
-          variants={item}
-          className="text-balance text-5xl font-extrabold tracking-tight sm:text-7xl"
-        >
-          Hi, I&apos;m <span className="text-gradient">{personalInfo.name}</span>
-        </motion.h1>
-
-        <motion.p
-          variants={item}
-          className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 sm:text-xl"
-        >
-          {personalInfo.role}
-        </motion.p>
-        <motion.p
-          variants={item}
-          className="mx-auto mt-4 max-w-xl text-zinc-500"
-        >
-          {personalInfo.tagline}
-        </motion.p>
-
+      <div className="relative flex flex-1 items-center">
         <motion.div
-          variants={item}
-          className="mt-6 flex items-center justify-center gap-2 text-sm text-zinc-500"
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="mx-auto w-full max-w-6xl px-6 pb-16 pt-32"
         >
-          <MapPin className="h-4 w-4 text-emerald-400" />
-          {personalInfo.location}
-        </motion.div>
+          <motion.p
+            variants={item}
+            className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent"
+          >
+            <span className="h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden />
+            Open to new opportunities
+          </motion.p>
 
-        <motion.div
-          variants={item}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent-gradient px-7 py-3 font-semibold text-zinc-950 shadow-glow animate-pulse-glow transition-transform hover:scale-105"
+          <motion.h1
+            variants={item}
+            className="mt-6 font-display text-5xl font-bold tracking-tight text-fg sm:text-7xl lg:text-8xl"
           >
-            View Projects
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3 font-semibold text-zinc-100 backdrop-blur transition-colors hover:border-emerald-400/50 hover:text-emerald-300"
+            {personalInfo.name}
+          </motion.h1>
+
+          <motion.p variants={item} className="mt-6 text-xl text-muted">
+            {personalInfo.role}
+          </motion.p>
+
+          <motion.p variants={item} className="mt-4 max-w-2xl text-muted">
+            {personalInfo.tagline}
+          </motion.p>
+
+          <motion.p
+            variants={item}
+            className="mt-3 flex items-center gap-2 text-sm text-muted"
           >
-            <Mail className="h-4 w-4" />
-            Contact Me
-          </a>
+            <MapPin className="h-4 w-4 text-accent" aria-hidden />
+            {personalInfo.location}
+          </motion.p>
+
+          <motion.div
+            variants={item}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            <a
+              href="#projects"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3 font-semibold text-accent-ink transition hover:brightness-110"
+            >
+              View Projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-7 py-3 font-semibold text-fg transition-colors hover:border-accent/60 hover:text-accent"
+            >
+              Get in Touch
+            </a>
+
+            <div className="flex items-center gap-2 sm:ml-2">
+              {personalInfo.socials.map((social) => {
+                const Icon = getIcon(social.icon);
+                const external = social.href.startsWith("http");
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="flex h-11 w-11 items-center justify-center rounded-full text-muted transition-colors hover:text-accent"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
+
+      {/* tech marquee */}
+      <div className="marquee relative border-y border-line py-3">
+        <div className="marquee-track">
+          {[0, 1].map((copy) => (
+            <div
+              key={copy}
+              aria-hidden={copy === 1}
+              className="flex items-center"
+            >
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="flex items-center whitespace-nowrap text-sm font-medium uppercase tracking-[0.2em] text-muted"
+                >
+                  <span className="px-5">{tech}</span>
+                  <span className="text-accent" aria-hidden>
+                    ✦
+                  </span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

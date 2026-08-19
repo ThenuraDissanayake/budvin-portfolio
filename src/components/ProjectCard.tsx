@@ -6,30 +6,25 @@ import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types/portfolio";
 import { TechBadge } from "./TechBadge";
 
-/** Project card with scale-on-hover, glow, tech tags, and a case-study link. */
+/** Flat editorial project card: surface panel, hairline border, accent hover, case-study link. */
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
-      whileHover={{ y: -6, scale: 1.02 }}
+      whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-colors hover:border-emerald-400/40 hover:shadow-glow"
+      className="group flex h-full flex-col rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-accent/60"
     >
-      {/* corner gradient glow */}
-      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-emerald-400/10 blur-3xl transition-colors duration-500 group-hover:bg-cyan-400/20" />
-
       {project.badge && (
-        <span className="mb-4 inline-flex w-fit items-center rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-semibold text-cyan-300">
+        <span className="mb-4 inline-flex w-fit items-center rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
           {project.badge}
         </span>
       )}
 
-      <h3 className="text-xl font-bold text-white transition-colors group-hover:text-emerald-300">
+      <h3 className="font-display text-xl font-bold tracking-tight text-fg transition-colors group-hover:text-accent">
         {project.title}
       </h3>
-      <p className="mt-1 text-sm font-medium text-emerald-400/90">
-        {project.role}
-      </p>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400">
+      <p className="mt-1 text-sm font-medium text-accent/80">{project.role}</p>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
         {project.summary}
       </p>
 
@@ -38,7 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <TechBadge key={tech} label={tech} />
         ))}
         {project.tech.length > 4 && (
-          <span className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
+          <span className="inline-flex items-center rounded-full border border-line px-3 py-1 text-xs text-muted">
             +{project.tech.length - 4} more
           </span>
         )}
@@ -46,7 +41,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <Link
         href={`/projects/${project.slug}`}
-        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 transition-colors hover:text-cyan-300"
+        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition hover:brightness-110"
       >
         View Case Study
         <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

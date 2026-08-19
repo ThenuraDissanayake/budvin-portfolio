@@ -1,5 +1,6 @@
 import {
   Atom,
+  BellRing,
   Boxes,
   Briefcase,
   Cloud,
@@ -14,9 +15,12 @@ import {
   Hexagon,
   Leaf,
   Mail,
+  Network,
   PenTool,
   Radio,
+  Rocket,
   Route,
+  Send,
   Server,
   Smartphone,
   Sparkles,
@@ -26,6 +30,7 @@ import {
   Wind,
   Workflow,
   Wrench,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -47,6 +52,8 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   dart: Target,
   "react-native": Atom,
   webrtc: Video,
+  push: BellRing,
+  eas: Rocket,
   // Frontend
   nextjs: Triangle,
   react: Atom,
@@ -59,6 +66,7 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   express: Route,
   serverless: Cloud,
   socketio: Radio,
+  rest: Network,
   // Database & Cloud
   postgresql: Database,
   mongodb: Leaf,
@@ -66,11 +74,15 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   aws: Cloud,
   ec2: Server,
   cloudrun: Container,
+  supabase: Zap,
   // Tools
   git: GitBranch,
   github: GitFork,
   figma: PenTool,
   agile: Workflow,
+  docker: Container,
+  cicd: Workflow,
+  postman: Send,
 
   // --- Social icons ---
   linkedin: Briefcase,

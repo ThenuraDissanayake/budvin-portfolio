@@ -8,12 +8,16 @@
   }
 
   body {
-    @apply bg-zinc-950 text-zinc-100 antialiased;
+    @apply bg-ink text-fg font-sans antialiased;
   }
 
-  /* Themed selection + scrollbar to complete the dark-tech feel */
   ::selection {
-    @apply bg-emerald-400/30 text-white;
+    @apply bg-accent text-ink;
+  }
+
+  /* Accessible focus ring in the accent color */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-ink;
   }
 
   ::-webkit-scrollbar {
@@ -22,32 +26,46 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-zinc-950;
+    @apply bg-ink;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-zinc-800;
-    border: 2px solid #09090b;
+    @apply rounded-full bg-surface;
+    border: 2px solid #0a0a0e;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-emerald-500/60;
+    @apply bg-accent/60;
   }
 }
 
 @layer components {
-  /* Reusable translucent glass surface */
-  .glass {
-    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+  /* Very subtle square grid texture — hero background only */
+  .bg-grid {
+    background-image:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
-  /* Sticky navbar glass */
-  .glass-nav {
-    @apply border-b border-white/10 bg-zinc-950/70 backdrop-blur-xl;
+  /* Infinite horizontal marquee. Markup: .marquee > .marquee-track with content duplicated twice. */
+  .marquee {
+    overflow: hidden;
   }
 
-  /* Emerald -> cyan gradient text */
-  .text-gradient {
-    @apply bg-accent-gradient bg-clip-text text-transparent;
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
   }
 }

@@ -35,6 +35,12 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+/** External link shown on the case-study page, e.g. a store listing or repo. */
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -47,5 +53,6 @@ export interface Project {
   description: string;
   tech: string[];
   keyFeatures: string[];
+  links?: ProjectLink[];
   featured?: boolean;
 }
