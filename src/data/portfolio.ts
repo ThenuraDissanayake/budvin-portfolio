@@ -124,9 +124,9 @@ export const projects: Project[] = [
     badge: "Industry Project",
     role: "Lead Full-Stack Developer",
     summary:
-      "A dating and community app, live on Google Play and in App Store review. I took over an early Flutter frontend and built it into the full Android and iOS product.",
+      "A dating and community app, live on Google Play and the App Store. I took over an early Flutter frontend and built it into the full Android and iOS product.",
     description:
-      "A dating and community app built at my current employer, live on Google Play and in App Store review. I took over an early Flutter frontend that ran on mock data with no backend, and built it out into the full Android and iOS app \u2014 backend, security, payments, calls, push notifications, releases and QA.",
+      "A dating and community app built at my current employer, live on Google Play and the App Store. I took over an early Flutter frontend that ran on mock data with no backend, and built it out into the full Android and iOS app \u2014 backend, security, payments, calls, push notifications, releases and QA.",
     tech: [
       "Flutter",
       "Dart",
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     summary:
       "An EV charging platform for a client of my employer. I built the mobile app and the entire API behind both the mobile app and the web client.",
     description:
-      "An EV charging platform delivered by my employer for a client. The platform is live; my mobile app is pending store release. I built the 34-screen React Native app and the entire Node.js and Express API, which serves both the mobile app and the web client built by the web team.",
+      "An EV charging platform delivered by my employer for a client. The platform is live, and my mobile app is now on Google Play and the App Store. I built the 19-screen React Native app and the entire Node.js and Express API, which serves both the mobile app and the web client built by the web team.",
     tech: [
       "React Native (Expo)",
       "TypeScript",
@@ -170,10 +170,10 @@ export const projects: Project[] = [
       "GitHub Actions",
     ],
     keyFeatures: [
-      "Built the 34-screen React Native mobile app and the entire Node.js and Express API shared by the mobile app and the web client.",
+      "Built the 19-screen React Native mobile app and the entire Node.js and Express API shared by the mobile app and the web client.",
       "Containerised the API with Docker and automated deployment to Google Cloud Run via GitHub Actions.",
       "Integrated subscription payments with webhook idempotency and replay protection, verified by a 17-scenario end-to-end simulation.",
-      "Hardened the API with authorisation middleware, object-level access controls, rate limiting and stateless OTP, with 44 passing tests.",
+      "Hardened the API with authorisation middleware, object-level access controls, rate limiting and stateless OTP, with 360+ automated tests.",
     ],
     featured: true,
   },
