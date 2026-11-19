@@ -228,30 +228,6 @@ export const projects: Project[] = [
     ],
     featured: true,
   },
-  {
-    slug: "restaurant-ordering-app",
-    title: "Restaurant Ordering Web App",
-    role: "Full-Stack Web Developer",
-    summary:
-      "A restaurant ordering and management web application built from scratch and deployed to AWS.",
-    description:
-      "A restaurant ordering and management web application covering users, menus and orders, built from scratch with React, Node.js, Express and MongoDB, and deployed to AWS EC2.",
-    tech: [
-      "React.js",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Tailwind CSS",
-      "AWS EC2",
-    ],
-    keyFeatures: [
-      "Designed optimized MongoDB schemas for users, menus, and orders.",
-      "Built robust REST APIs with Express.",
-      "Implemented responsive, real-time UI/UX with React.",
-      "Built from scratch and deployed to AWS EC2.",
-    ],
-    featured: true,
-  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
