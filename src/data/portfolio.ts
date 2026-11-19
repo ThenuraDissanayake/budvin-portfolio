@@ -48,7 +48,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "React.js", icon: "react" },
       { name: "TypeScript", icon: "typescript" },
       { name: "Tailwind CSS", icon: "tailwind" },
-      { name: "Zustand", icon: "zustand" },
       { name: "Framer Motion", icon: "framer-motion" },
     ],
   },
@@ -60,7 +59,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Express.js", icon: "express" },
       { name: "REST API Design", icon: "rest" },
       { name: "Socket.IO (Real-time)", icon: "socketio" },
-      { name: "Serverless Functions", icon: "serverless" },
+      { name: "Supabase Edge Functions (Deno)", icon: "serverless" },
     ],
   },
   {
@@ -69,7 +68,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "PostgreSQL", icon: "postgresql" },
       { name: "Supabase", icon: "supabase" },
-      { name: "MongoDB", icon: "mongodb" },
       { name: "Firebase", icon: "firebase" },
       { name: "AWS (EC2, Cognito, S3, SES)", icon: "aws" },
       { name: "Google Cloud Run", icon: "cloudrun" },
@@ -96,9 +94,9 @@ export const projects: Project[] = [
     badge: "Industry Project",
     role: "Mobile & Backend Developer",
     summary:
-      "A production four-role delivery platform, live on Google Play. Built for a Malaysian partner company of my employer \u2014 I developed the entire mobile app and its 113-endpoint backend.",
+      "A production four-role delivery platform, live on Google Play. Built for a Malaysian partner company of my employer \u2014 I built the mobile app and most of its 150+ endpoint backend.",
     description:
-      "A production delivery platform live on Google Play, built during my software engineering internship, for a Malaysian partner company of my employer. I developed the mobile application and its backend: 53 screens across four user roles in React Native + TypeScript, and a 113-endpoint Node.js API over a 53-table PostgreSQL schema, deployed on AWS EC2 behind Nginx.",
+      "A production delivery platform live on Google Play, built during my software engineering internship, for a Malaysian partner company of my employer. I built the mobile application and most of its backend: 50+ screens across four user roles in React Native + TypeScript, and a Node.js API of 150+ endpoints over a shared 53-table PostgreSQL database, deployed on AWS EC2 behind Nginx.",
     tech: [
       "React Native (Expo)",
       "TypeScript",
@@ -110,7 +108,7 @@ export const projects: Project[] = [
       "WebRTC",
     ],
     keyFeatures: [
-      "Built the full mobile app \u2014 53 screens across four user roles \u2014 and the entire 113-endpoint REST API behind it.",
+      "Built the mobile app \u2014 50+ screens across four user roles \u2014 and most of the REST API behind it (85% of its code, 150+ endpoints).",
       "Integrated payment-gateway checkout and automated payouts with RSA-verified payment webhooks, refunds and wallet ledgers.",
       "Implemented in-app voice calling over WebRTC + CallKeep, ringing on the lock screen on both Android and iOS.",
       "Delivered real-time order tracking and chat over Socket.IO with background geolocation and live ETAs.",
@@ -151,26 +149,55 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "regional-dating-app",
+    title: "Dating App for Malaysia, Singapore & Indonesia",
+    badge: "Industry Project",
+    role: "Lead Full-Stack Developer",
+    summary:
+      "A dating app for a Malaysian partner company of my employer, live on Google Play in Malaysia, Singapore and Indonesia.",
+    description:
+      "A dating app built for a Malaysian partner company of my employer and released on Google Play in three countries. I led the build as a fully separate product, with its own app ID, signing key and staging and production backends, and adapted it for Malaysia, Singapore and Indonesia.",
+    tech: [
+      "Flutter",
+      "Dart",
+      "Supabase",
+      "PostgreSQL",
+      "Edge Functions (Deno)",
+      "Google ML Kit",
+      "Google Play Billing",
+      "Shorebird",
+    ],
+    keyFeatures: [
+      "Set it up as a fully separate product: its own app ID, signing key and staging and production Supabase backends, 28 migrations with rollback scripts, and release checks that every build uses only its own backend and keys.",
+      "Adapted it for three countries: per-member time zones, Malay and Indonesian sign-in emails and legal pages, Google sign-in (Apple sign-in built for the iOS release) and an on-device ML Kit selfie liveness check with human review.",
+      "Served the legal documents from the server with SHA-256 hash checks and versioned consent records, so a legal update needs no new app release.",
+      "Released it on Google Play after a two-round internal security and privacy review, adding 340+ automated tests to its suite.",
+    ],
+    featured: true,
+  },
+  {
     slug: "ev-charging-platform",
     title: "EV Charging Platform",
     badge: "Client Project",
     role: "Mobile & Backend Developer",
     summary:
-      "An EV charging platform for a client of my employer. I built the mobile app and the entire API behind both the mobile app and the web client.",
+      "An EV charging platform for a client of my employer. I built the mobile app and most of the API behind both the mobile app and the web client.",
     description:
-      "An EV charging platform delivered by my employer for a client. The platform is live, and my mobile app is now on Google Play and the App Store. I built the 19-screen React Native app and the entire Node.js and Express API, which serves both the mobile app and the web client built by the web team.",
+      "An EV charging platform delivered by my employer for a client. The platform is live, and my mobile app is now on Google Play and the App Store. I built the 19-screen React Native app and most of the Node.js and Express API (about 90% of its code), which serves both the mobile app and the Next.js web client, and worked on the web client too.",
     tech: [
       "React Native (Expo)",
       "TypeScript",
       "Node.js",
       "Express.js",
       "PostgreSQL",
+      "Next.js",
       "Docker",
       "Google Cloud Run",
       "GitHub Actions",
     ],
     keyFeatures: [
-      "Built the 19-screen React Native mobile app and the entire Node.js and Express API shared by the mobile app and the web client.",
+      "Built the 19-screen React Native mobile app and most of the Node.js and Express API (about 90% of its code), shared by the mobile app and the web client.",
+      "Worked on the Next.js web client: its legal-update popup, sign-up validation, Netlify setup and most of its automated tests.",
       "Containerised the API with Docker and automated deployment to Google Cloud Run via GitHub Actions.",
       "Integrated subscription payments with webhook idempotency and replay protection, verified by a 17-scenario end-to-end simulation.",
       "Hardened the API with authorisation middleware, object-level access controls, rate limiting and stateless OTP, with 360+ automated tests.",
@@ -203,12 +230,12 @@ export const projects: Project[] = [
   },
   {
     slug: "restaurant-ordering-app",
-    title: "Restaurant SaaS Ordering Web App",
+    title: "Restaurant Ordering Web App",
     role: "Full-Stack Web Developer",
     summary:
-      "A full-featured restaurant management web application built from scratch and deployed to AWS.",
+      "A restaurant ordering and management web application built from scratch and deployed to AWS.",
     description:
-      "A full-featured restaurant management web application built from scratch and deployed to AWS.",
+      "A restaurant ordering and management web application covering users, menus and orders, built from scratch with React, Node.js, Express and MongoDB, and deployed to AWS EC2.",
     tech: [
       "React.js",
       "Node.js",
